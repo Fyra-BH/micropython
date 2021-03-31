@@ -2,6 +2,7 @@
 # then default to PYBV10.
 # BOARD ?= PYBV10
 BOARD ?= PYB_01STUDIO
+USER_C_MODULES=../../MPY_LIB/
 
 
 # If the build directory is not given, make it reflect the board name.

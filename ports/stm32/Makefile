@@ -2,8 +2,8 @@
 # then default to PYBV10.
 # BOARD ?= PYBV10
 BOARD ?= PYB_01STUDIO
-USER_C_MODULES=../../MPY_LIB/
-
+USER_C_MODULES=../../MPY_LIB
+MICROPY_PY_WIZNET5K=5500
 
 # If the build directory is not given, make it reflect the board name.
 BUILD ?= build-$(BOARD)

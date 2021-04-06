@@ -219,13 +219,13 @@ TIM_HandleTypeDef *timer_tim6_init(uint freq) {
 #endif
 
 // Interrupt dispatch
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-    #if MICROPY_HW_ENABLE_SERVO
-    if (htim == &TIM5_Handle) {
-        servo_timer_irq_callback();
-    }
-    #endif
-}
+// void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+//     #if MICROPY_HW_ENABLE_SERVO
+//     if (htim == &TIM5_Handle) {
+//         servo_timer_irq_callback();
+//     }
+//     #endif
+// }
 
 // Get the frequency (in Hz) of the source clock for the given timer.
 // On STM32F405/407/415/417 there are 2 cases for how the clock freq is set.

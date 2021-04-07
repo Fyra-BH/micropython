@@ -651,9 +651,12 @@ void TIM3_IRQHandler(void) {
     IRQ_EXIT(TIM3_IRQn);
 }
 
+extern TIM_HandleTypeDef htim4;
+
 void TIM4_IRQHandler(void) {
     IRQ_ENTER(TIM4_IRQn);
     timer_irq_handler(4);
+    HAL_TIM_IRQHandler(&htim4);
     IRQ_EXIT(TIM4_IRQn);
 }
 

@@ -218,7 +218,7 @@ TIM_HandleTypeDef *timer_tim6_init(uint freq) {
 }
 #endif
 
-// Interrupt dispatch
+// // Interrupt dispatch
 // void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 //     #if MICROPY_HW_ENABLE_SERVO
 //     if (htim == &TIM5_Handle) {

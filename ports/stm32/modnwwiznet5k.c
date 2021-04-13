@@ -477,10 +477,40 @@ STATIC mp_obj_t wiznet5k_ifconfig(size_t n_args, const mp_obj_t *args) {
 }
 STATIC MP_DEFINE_CONST_FUN_OBJ_VAR_BETWEEN(wiznet5k_ifconfig_obj, 1, 2, wiznet5k_ifconfig);
 
+STATIC mp_obj_t wiznet5k_mac(size_t n_args, const mp_obj_t *args) 
+{
+    uint8_t mac[6];
+    getSHAR(mac);
+    if (n_args == 1) {
+        // get
+        mp_obj_t tuple[6] = {
+            mp_obj_new_int(mac[0]),
+            mp_obj_new_int(mac[1]),
+            mp_obj_new_int(mac[2]),
+            mp_obj_new_int(mac[3]),
+            mp_obj_new_int(mac[4]),
+            mp_obj_new_int(mac[5])
+        };
+        return mp_obj_new_tuple(6, tuple);
+    } else {
+        // set
+        mp_obj_t *items;
+        mp_obj_get_array_fixed_n(args[1], 6, &items);
+        for (size_t i = 0; i < 6; i++){
+            mac[i] = mp_obj_get_int(items[i]);
+        }
+        setSHAR(mac);
+        return mp_const_none;
+    }
+}
+
+STATIC MP_DEFINE_CONST_FUN_OBJ_VAR_BETWEEN(wiznet5k_mac_obj, 1, 2, wiznet5k_mac);
+
 STATIC const mp_rom_map_elem_t wiznet5k_locals_dict_table[] = {
     { MP_ROM_QSTR(MP_QSTR_regs), MP_ROM_PTR(&wiznet5k_regs_obj) },
     { MP_ROM_QSTR(MP_QSTR_ifconfig), MP_ROM_PTR(&wiznet5k_ifconfig_obj) },
     { MP_ROM_QSTR(MP_QSTR_isconnected), MP_ROM_PTR(&wiznet5k_isconnected_obj) },
+    { MP_ROM_QSTR(MP_QSTR_mac), MP_ROM_PTR(&wiznet5k_mac_obj) },
 };
 
 STATIC MP_DEFINE_CONST_DICT(wiznet5k_locals_dict, wiznet5k_locals_dict_table);

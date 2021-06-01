@@ -44,4 +44,4 @@
 	url = https://github.com/raspberrypi/pico-sdk.git
 [submodule "MPY_LIB"]
 	path = MPY_LIB
-	url = git@github.com:Fyra-BH/MPY_LIB.git
+	url = https://github.com/Fyra-BH/MPY_LIB.git
